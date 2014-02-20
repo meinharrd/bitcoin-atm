@@ -96,7 +96,7 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
         assert mEditTextAmount != null;
         assert mEditTextAmount.getText() != null;
         String stringAmount = mEditTextAmount.getText().toString();
-        BigDecimal amount = new BigDecimal(stringAmount);
+        BigDecimal amount = new BigDecimal(stringAmount).multiply(new BigDecimal(BitcoinIntegration.EXCHANGE_RATE_BTC_EUR));
 
         // Normally you would initialize a transaction from your server environment and share the
         // reference with the SDK in order to process it:

@@ -6,7 +6,7 @@
     <string name="label_unknown">disconnected</string>
     <string name="label_amount">BTC Amount:</string>
     <string name="button_start_transaction">Buy</string>
-    <string name="edit_value_amount_default">0.000</string>
+    <string name="edit_value_amount_default"></string>
     <string name="label_unspecified_text">Unspecified text</string>
     <string name="label_header_refund_transaction">Refund a transaction</string>
     <string name="label_last_transaction">Last transaction</string>

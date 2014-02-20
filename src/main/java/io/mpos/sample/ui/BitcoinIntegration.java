@@ -30,6 +30,8 @@ public final class BitcoinIntegration
 {
 	private static final String INTENT_EXTRA_TRANSACTION_HASH = "transaction_hash";
 
+    public static final double EXCHANGE_RATE_BTC_EUR = 451.10;
+
 	/**
 	 * Request any amount of Bitcoins (probably a donation) from user, without feedback from the app.
 	 * 
