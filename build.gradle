@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.7.+'
+    }
+}
+apply plugin: 'android'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+
+    flatDir name: 'localRepository', dirs: 'libs'
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17.0.0"
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 18
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:18.0.0'
+    compile 'com.android.support:support-v4:18.0.0'
+
+    //the core mPOS Android library
+    compile ':mpos.android.core:@aar'
+
+    // the specifications for Android (such as TLV, ISO-7816, ...)
+    compile ':mpos.android.specs:@aar'
+
+    //The Miura Shuttle Android library
+    compile ':mpos.android.accessories.miura:@aar'
+
+    //The mPOS bluetooth library
+    compile ':mpos.android.comlinks.bluetooth:@aar'
+
+    //dependencies used from the mPOS SDK
+    compile group: 'com.google', name: 'volley', version:'4.4.2.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.0'
+    compile 'com.squareup:otto:1.3.4'
+}
+
+task zip(type:Zip,dependsOn:'clean') {
+    baseName 'mPOSSampleAndroidStudio'
+    from '.'
+    into 'mPOSSample'
+    exclude 'build'
+}

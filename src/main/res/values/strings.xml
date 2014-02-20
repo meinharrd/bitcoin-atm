@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bitcoin ATM</string>
+    <string name="label_accessory_state">Card reader:</string>
+    <string name="label_unknown">disconnected</string>
+    <string name="label_amount">BTC Amount:</string>
+    <string name="button_start_transaction">Buy</string>
+    <string name="edit_value_amount_default">0.000</string>
+    <string name="label_unspecified_text">Unspecified text</string>
+    <string name="label_header_refund_transaction">Refund a transaction</string>
+    <string name="label_last_transaction">Last transaction</string>
+    <string name="label_identifier">Identifier:</string>
+    <string name="label_timestamp">Timestamp:</string>
+    <string name="symbol_dash">-</string>
+    <string name="button_do_refund">Start Refund</string>
+    <string name="label_copyright_and_url">© 2014 - http://payworksmobile.com/</string>
+    <string name="paragraph_description">
+        This sample application demonstrates the interaction with the payworks MPOS SDK for the Android platform. Run on the emulator, the current version utilizes mock-up behaviour without connecting to any card readers. Run it on a real device and it will connect to a Miura Shuttle card reader. For more details and known limitations see the README.rst file. Happy hacking!</string>
+    <string name="label_sdk_version">SDK Version: </string>
+    <string name="textview_sdk_version">unknown</string>
+    <string name="label_header_about">Sample Android App for MPOS SDK</string>
+    <string name="button_refund_sample">Refund Sample</string>
+    <string name="button_charge_sample">Charge Sample</string>
+    <string name="description_logo">payworks logo</string>
+    <string name="empty_string"> </string>
+    <string name="description_sample_signature">sample signature</string>
+</resources>

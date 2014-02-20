@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.mpos.sample"
+    android:versionCode="9"
+    android:versionName="2.0.0-BETA02" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="18"/>
+    
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".ui.MposApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyAppTheme" >
+        <activity
+            android:name="io.mpos.sample.ui.ChargeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="io.mpos.sample.ui.MenuActivity" />
+        <activity android:name="io.mpos.sample.ui.RefundActivity" />
+        <service
+            android:enabled="true"
+            android:label="Bluetooth Connection Service"
+            android:name="io.mpos.communicationmodules.background.BluetoothConnectionService">
+        </service>
+    </application>
+
+</manifest>

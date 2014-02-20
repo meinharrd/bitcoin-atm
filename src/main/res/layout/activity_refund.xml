@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/label_header_refund_transaction"
+        android:id="@+id/refund_label_header"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/label_last_transaction"
+        android:id="@+id/refund_label_header2"
+        android:layout_below="@+id/refund_label_header"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_amount"
+        android:id="@+id/refund_label_amount"
+        android:layout_below="@+id/refund_label_header2"
+        android:layout_alignLeft="@+id/refund_label_header2"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_identifier"
+        android:id="@+id/refund_label_identifier"
+        android:layout_below="@+id/refund_label_amount"
+        android:layout_alignLeft="@+id/refund_label_amount"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_timestamp"
+        android:id="@+id/refund_label_timestamp"
+        android:layout_below="@+id/refund_tv_identifier"
+        android:layout_alignLeft="@+id/refund_label_identifier"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/symbol_dash"
+        android:id="@+id/refund_tv_amount"
+        android:layout_alignTop="@+id/refund_label_amount"
+        android:layout_toRightOf="@+id/refund_label_amount"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/symbol_dash"
+        android:id="@+id/refund_tv_identifier"
+        android:layout_below="@+id/refund_tv_amount"
+        android:layout_toRightOf="@+id/refund_label_identifier"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/symbol_dash"
+        android:id="@+id/refund_tv_timestamp"
+        android:layout_below="@+id/refund_tv_identifier"
+        android:layout_toRightOf="@+id/refund_label_timestamp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_do_refund"
+        android:id="@+id/button_start"
+        android:layout_below="@+id/refund_label_timestamp"
+        android:layout_alignLeft="@+id/refund_label_timestamp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar"
+        android:indeterminate="true"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        android:layout_below="@+id/button_start"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_accessory_state"
+        android:id="@+id/refund_label_accessory_state"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_unknown"
+        android:id="@+id/accessory_state"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/refund_image_view_refresh"
+        android:src="@drawable/ic_refresh"
+        android:layout_alignTop="@+id/refund_label_header2"
+        android:layout_alignRight="@+id/button_start"/>
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_accessory_state"
+        android:id="@+id/charge_tv_label_accessory_state"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_unknown"
+        android:id="@+id/accessory_state"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/label_amount"
+        android:id="@+id/charge_tv_amount"
+        android:layout_below="@+id/charge_tv_header"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/charge_edit_amount"
+        android:phoneNumber="false"
+        android:textAlignment="viewEnd"
+        android:singleLine="true"
+        android:layout_alignBaseline="@+id/charge_tv_amount"
+        android:layout_alignRight="@+id/accessory_state"
+        android:gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/charge_tv_amount"
+        android:text="@string/edit_value_amount_default"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_start_transaction"
+        android:id="@+id/button_start"
+        android:layout_below="@+id/charge_edit_amount"
+        android:layout_marginTop="65dp"
+        android:layout_alignRight="@+id/charge_edit_amount"
+        android:layout_alignLeft="@+id/charge_tv_amount"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar"
+        android:indeterminate="true"
+        android:layout_below="@+id/button_start"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
