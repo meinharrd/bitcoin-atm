@@ -27,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="io.mpos.sample.ui.BitcoinOkActivity" />
+        <activity android:name="io.mpos.sample.ui.BitcoinCanceledActivity" />
+        <activity android:name="io.mpos.sample.ui.BitcoinFailedActivity" />
         <activity android:name="io.mpos.sample.ui.MenuActivity" />
         <activity android:name="io.mpos.sample.ui.RefundActivity" />
         <service

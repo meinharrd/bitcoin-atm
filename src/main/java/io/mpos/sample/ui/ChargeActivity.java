@@ -1,5 +1,7 @@
 package io.mpos.sample.ui;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +40,8 @@ import io.mpos.transactions.actionsupport.TransactionActionSupport;
 public class ChargeActivity extends MposActivity implements TransactionRegisterListener, AccessoryUpdateListener, TransactionListener {
     private EditText mEditTextAmount;
     private Button buttonStart;
+
+    private static final int REQUEST_CODE = 0;
 
     /**
      * Here we temporarily store the transaction we handle. This is necessary as the intermediate
@@ -202,6 +206,8 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
         createActionRequiredDialog(transaction, transactionAction);
     }
 
+    // Call Bitcoin wallet app
+
     public void transferBitcoins() {
         // get details
         assert mEditTextAmount != null;
@@ -210,7 +216,30 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
         BigDecimal amount = new BigDecimal(stringAmount);
         long amountNanocoins = amount.multiply(new BigDecimal(BitcoinIntegration.NANOCOINS_PER_COIN)).intValue();
 
-        BitcoinIntegration.request(ChargeActivity.this, "n1z13CoY5ssrCKDMZzU1wetgvxchao1wiu", amountNanocoins);
+        BitcoinIntegration.requestForResult(ChargeActivity.this, REQUEST_CODE, "n1z13CoY5ssrCKDMZzU1wetgvxchao1wiu", amountNanocoins);
+    }
+
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data)
+    {
+        if (requestCode == REQUEST_CODE)
+        {
+            if (resultCode == Activity.RESULT_OK)
+            {
+                Intent intent = new Intent(getApplicationContext(), BitcoinOkActivity.class);
+                startActivity(intent);
+            }
+            else if (resultCode == Activity.RESULT_CANCELED)
+            {
+                Intent intent = new Intent(getApplicationContext(), BitcoinCanceledActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+                Intent intent = new Intent(getApplicationContext(), BitcoinFailedActivity.class);
+                startActivity(intent);
+            }
+        }
     }
 
     // Finally, the transaction succeeds:

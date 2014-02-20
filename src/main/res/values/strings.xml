@@ -12,6 +12,9 @@
     <string name="label_last_transaction">Last transaction</string>
     <string name="label_identifier">Identifier:</string>
     <string name="label_timestamp">Timestamp:</string>
+    <string name="label_thank_you">Thank you!</string>
+    <string name="label_canceled">Canceled...</string>
+    <string name="label_failed">Failed</string>
     <string name="symbol_dash">-</string>
     <string name="button_do_refund">Start Refund</string>
     <string name="label_copyright_and_url">© 2014 - http://payworksmobile.com/</string>
