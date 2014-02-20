@@ -127,7 +127,7 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
         // specify transaction
             TransactionTemplateFactory transactionTemplateFactory = mProvider.getTransactionTemplateFactory();
             TransactionTemplate template = transactionTemplateFactory.
-                    createTemplateWithAmount(amount, MposApplication.DEFAULT_CURRENCY, TransactionType.CHARGE, "subject", "custom identifier");
+                    createTemplateWithAmount(amountEuro, MposApplication.DEFAULT_CURRENCY, TransactionType.CHARGE, "subject", "custom identifier");
 
             // register transaction
             mProvider.registerTransactionWithTemplate(template);
