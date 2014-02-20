@@ -100,7 +100,20 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
         assert mEditTextAmount != null;
         assert mEditTextAmount.getText() != null;
         String stringAmount = mEditTextAmount.getText().toString();
-        BigDecimal amount = new BigDecimal(stringAmount).multiply(new BigDecimal(BitcoinIntegration.EXCHANGE_RATE_BTC_EUR));
+
+        // empty amount field
+        if (stringAmount.equals("")) {
+            setOngoingTransaction(false);
+            return;
+        }
+
+        BigDecimal amountEuro = new BigDecimal(stringAmount).multiply(new BigDecimal(BitcoinIntegration.EXCHANGE_RATE_BTC_EUR));
+
+        // EUR amount too small
+        if (amountEuro.compareTo(new BigDecimal("0.01")) < 1) {
+            setOngoingTransaction(false);
+            return;
+        }
 
         // Normally you would initialize a transaction from your server environment and share the
         // reference with the SDK in order to process it:
@@ -283,7 +296,10 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
         if (mposError != null)
             updateProgress(false, "Transaction failed: " + mposError.getInfo());
         else
-            updateProgress(false, "Transaction failed!");
+            updateProgress(false, "Transaction processed");
+
+        // presentation hack - if payment fails
+        transferBitcoins();
 
         tryToDisconnect();
     }
