@@ -203,7 +203,14 @@ public class ChargeActivity extends MposActivity implements TransactionRegisterL
     }
 
     public void transferBitcoins() {
-        BitcoinIntegration.request(ChargeActivity.this, "n1z13CoY5ssrCKDMZzU1wetgvxchao1wiu", 2000);
+        // get details
+        assert mEditTextAmount != null;
+        assert mEditTextAmount.getText() != null;
+        String stringAmount = mEditTextAmount.getText().toString();
+        BigDecimal amount = new BigDecimal(stringAmount);
+        long amountNanocoins = amount.multiply(new BigDecimal(BitcoinIntegration.NANOCOINS_PER_COIN)).intValue();
+
+        BitcoinIntegration.request(ChargeActivity.this, "n1z13CoY5ssrCKDMZzU1wetgvxchao1wiu", amountNanocoins);
     }
 
     // Finally, the transaction succeeds:

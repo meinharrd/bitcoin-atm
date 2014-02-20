@@ -136,7 +136,7 @@ public final class BitcoinIntegration
 		return txHash;
 	}
 
-	private static final int NANOCOINS_PER_COIN = 100000000;
+	public static final int NANOCOINS_PER_COIN = 100000000;
 
 	private static Intent makeIntent(final String address, final Long amount)
 	{
